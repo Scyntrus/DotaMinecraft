@@ -1,4 +1,4 @@
-package me.scyntrus.dotaminecraft;
+package com.gmail.scyntrus.dotaminecraft;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;

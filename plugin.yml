@@ -1,5 +1,5 @@
 name: DotaMinecraft
-main: me.scyntrus.dotaminecraft.DotaMinecraft
+main: com.gmail.scyntrus.dotaminecraft.DotaMinecraft
 author: Scyntrus
 version: 2.12
 depend: [Multiverse-Core]
