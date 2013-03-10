@@ -1,0 +1,7 @@
+Enabled: false
+WorldName: Minecraft_dota
+PlayersKeepItems: true
+PlayersKeepLevel: true
+ForceMobSpawn: false
+RecallEnabled: false
+RecallDelay: 6
