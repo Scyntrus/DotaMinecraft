@@ -1,7 +1,17 @@
+
+# == DotaMinecraft Fonfig ==
+
+# SET THIS TO TRUE
 Enabled: false
+
+# The name of the Dota world. May not contain spaces or periods
 WorldName: Minecraft_dota
+
+# General gameplay options
 PlayersKeepItems: true
 PlayersKeepLevel: true
-ForceMobSpawn: false
 RecallEnabled: false
 RecallDelay: 6
+
+# Set this to true if mobs are not spawning
+ForceMobSpawn: false

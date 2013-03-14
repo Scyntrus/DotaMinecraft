@@ -51,8 +51,10 @@ public class DotaMinecraft extends JavaPlugin {
 	//Blue is 2
 	
     public void onEnable() {
-    	this.getConfig().options().copyDefaults(true);
+		this.saveDefaultConfig();
     	FileConfiguration config = this.getConfig();
+    	config.options().copyDefaults(true);
+    	this.saveConfig();
     	this.Enabled = config.getBoolean("Enabled");
     	this.WorldName = config.getString("WorldName");
     	this.PlayersKeepItems = config.getBoolean("PlayersKeepItems");
@@ -60,7 +62,6 @@ public class DotaMinecraft extends JavaPlugin {
     	this.ForceMobSpawn = config.getBoolean("ForceMobSpawn");
     	this.RecallEnabled = config.getBoolean("RecallEnabled");
     	this.RecallDelay = config.getInt("RecallDelay");
-    	this.saveConfig();
     	
 		this.pm = this.getServer().getPluginManager();
     	
