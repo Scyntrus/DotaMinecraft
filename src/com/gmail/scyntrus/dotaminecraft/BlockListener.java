@@ -1,12 +1,17 @@
 package com.gmail.scyntrus.dotaminecraft;
 
+import net.minecraft.server.v1_5_R1.Entity;
+import net.minecraft.server.v1_5_R1.EntityMonster;
+import net.minecraft.server.v1_5_R1.Item;
+import net.minecraft.server.v1_5_R1.ItemStack;
+
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.Listener;
 import org.bukkit.material.Dispenser;
 import org.bukkit.material.SpawnEgg;
 
@@ -40,10 +45,26 @@ public class BlockListener implements Listener {
 	
 	@EventHandler
     public void onBlockDispenseEvent(BlockDispenseEvent event) {
-		if (plugin.ForceMobSpawn && event.getItem().getType()==Material.MONSTER_EGG && !plugin.world.getAllowMonsters()) {
-			Dispenser disp = (Dispenser) event.getBlock().getState().getData();
-			SpawnEgg e = (SpawnEgg) event.getItem().getData();
-			event.getBlock().getWorld().spawnEntity(event.getBlock().getRelative(disp.getFacing()).getLocation().add(.5,0.,.5), e.getSpawnedType());
+		if (event.getBlock().getWorld().getName().equals(plugin.WorldName)){
+			if (event.getItem().getType()==Material.MONSTER_EGG) {
+				Dispenser disp = (Dispenser) event.getBlock().getState().getData();
+				SpawnEgg e = (SpawnEgg) event.getItem().getData();
+				Entity newMob = (Entity) event.getBlock().getWorld().spawnEntity(
+						event.getBlock().getRelative(disp.getFacing()).getLocation().add(.5,0.,.5), 
+						e.getSpawnedType());
+				if (plugin.removeMobArmor) {
+					newMob.setEquipment(1, null);
+					newMob.setEquipment(2, null);
+					newMob.setEquipment(3, null);
+					newMob.setEquipment(4, null);
+				}
+				if (plugin.giveMobsHelmet) {
+					if (!(newMob instanceof EntityMonster && ((EntityMonster) newMob).getEquipment(4) != null)) {
+						newMob.setEquipment(4, new ItemStack(Item.LEATHER_HELMET));
+					}
+				}
+				event.setCancelled(true);
+			}
 		}
 	}
 }

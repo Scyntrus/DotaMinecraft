@@ -94,7 +94,7 @@ public class DotaCommand implements CommandExecutor {
 				} else {
 					sender.sendMessage("You're already on a team!");
 				}
-			} else if (split[0].toLowerCase().equals("restart")){
+			} else if (split[0].toLowerCase().equals("restart") || split[0].toLowerCase().equals("reset")){
 				if (sender.hasPermission("dota.restart")){
 					if (plugin.GameInProgress && !sender.hasPermission("dota.forcerestart")){
 						sender.sendMessage(ChatColor.DARK_RED + "A game is aready in progress. There is no need to restart the game.");

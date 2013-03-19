@@ -1,5 +1,5 @@
 
-# == DotaMinecraft Fonfig ==
+# == DotaMinecraft Config ==
 
 # SET THIS TO TRUE
 Enabled: false
@@ -7,11 +7,16 @@ Enabled: false
 # The name of the Dota world. May not contain spaces or periods
 WorldName: Minecraft_dota
 
-# General gameplay options
+# What happens on player death
 PlayersKeepItems: true
 PlayersKeepLevel: true
+
+# Recall command
 RecallEnabled: false
 RecallDelay: 6
 
-# Set this to true if mobs are not spawning
-ForceMobSpawn: false
+# Remove mob armor (since zombies and skeletons can sometimes spawn with armor)
+removeMobArmor: false
+
+# Gives mobs leather helmet (so they don't burn in the sun)
+giveMobsHelmet: true

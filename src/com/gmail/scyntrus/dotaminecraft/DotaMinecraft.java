@@ -43,9 +43,11 @@ public class DotaMinecraft extends JavaPlugin {
 	public String WorldName = "Minecraft_dota";
 	public MultiverseCore MVCorePlugin = null;
 	public PluginManager pm = null;
-	public boolean ForceMobSpawn = false;
 	public boolean RecallEnabled = false;
 	public int RecallDelay = 6;
+	
+	public boolean removeMobArmor = false;
+	public boolean giveMobsHelmet = false;
 	
 	//Red is 1
 	//Blue is 2
@@ -59,7 +61,8 @@ public class DotaMinecraft extends JavaPlugin {
     	this.WorldName = config.getString("WorldName");
     	this.PlayersKeepItems = config.getBoolean("PlayersKeepItems");
     	this.PlayersKeepLevel = config.getBoolean("PlayersKeepLevel");
-    	this.ForceMobSpawn = config.getBoolean("ForceMobSpawn");
+    	this.removeMobArmor = config.getBoolean("removeMobArmor");
+    	this.giveMobsHelmet = config.getBoolean("giveMobsHelmet");
     	this.RecallEnabled = config.getBoolean("RecallEnabled");
     	this.RecallDelay = config.getInt("RecallDelay");
     	

@@ -3,11 +3,12 @@ package com.gmail.scyntrus.dotaminecraft;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_5_R1.entity.CraftEntity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
@@ -185,6 +186,11 @@ public class EntityListener implements Listener {
 			return;
 		}
 		if (event.getEntityType() != EntityType.PLAYER) {
+			((CraftEntity) event.getEntity()).getHandle().setEquipment(0, null);
+			((CraftEntity) event.getEntity()).getHandle().setEquipment(1, null);
+			((CraftEntity) event.getEntity()).getHandle().setEquipment(2, null);
+			((CraftEntity) event.getEntity()).getHandle().setEquipment(3, null);
+			((CraftEntity) event.getEntity()).getHandle().setEquipment(4, null);
 			if (event.getEntity().getKiller() instanceof Player){
 				Player player = event.getEntity().getKiller();
 				for (ItemStack istack : event.getDrops()){
