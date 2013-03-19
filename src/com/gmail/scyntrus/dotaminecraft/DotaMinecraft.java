@@ -87,7 +87,7 @@ public class DotaMinecraft extends JavaPlugin {
     	    goodVersion = true;
     	} catch(Exception e) {
     	    goodVersion = false;
-    	    System.out.println("You are running an unsupported version of CraftBukkit. Some features will be disabled.");
+    	    System.out.println("[DotaMinecraft] You are running an unsupported version of CraftBukkit. Some features will be disabled.");
     	}
 
 		try { // using mcstats.org metrics
