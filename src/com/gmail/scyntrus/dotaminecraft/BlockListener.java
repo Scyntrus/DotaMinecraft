@@ -1,11 +1,12 @@
 package com.gmail.scyntrus.dotaminecraft;
 
-import net.minecraft.server.v1_5_R1.Entity;
 import net.minecraft.server.v1_5_R1.EntityMonster;
 import net.minecraft.server.v1_5_R1.Item;
 import net.minecraft.server.v1_5_R1.ItemStack;
 
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_5_R1.entity.CraftEntity;
+import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -49,18 +50,21 @@ public class BlockListener implements Listener {
 			if (event.getItem().getType()==Material.MONSTER_EGG) {
 				Dispenser disp = (Dispenser) event.getBlock().getState().getData();
 				SpawnEgg e = (SpawnEgg) event.getItem().getData();
-				Entity newMob = (Entity) event.getBlock().getWorld().spawnEntity(
+				Entity newEntity = (Entity) event.getBlock().getWorld().spawnEntity(
 						event.getBlock().getRelative(disp.getFacing()).getLocation().add(.5,0.,.5), 
 						e.getSpawnedType());
-				if (plugin.removeMobArmor) {
-					newMob.setEquipment(1, null);
-					newMob.setEquipment(2, null);
-					newMob.setEquipment(3, null);
-					newMob.setEquipment(4, null);
-				}
-				if (plugin.giveMobsHelmet) {
-					if (!(newMob instanceof EntityMonster && ((EntityMonster) newMob).getEquipment(4) != null)) {
-						newMob.setEquipment(4, new ItemStack(Item.LEATHER_HELMET));
+				if (plugin.goodVersion) {
+					net.minecraft.server.v1_5_R1.Entity newMob = ((CraftEntity) newEntity).getHandle();
+					if (plugin.removeMobArmor) {
+						newMob.setEquipment(1, null);
+						newMob.setEquipment(2, null);
+						newMob.setEquipment(3, null);
+						newMob.setEquipment(4, null);
+					}
+					if (plugin.giveMobsHelmet) {
+						if (!(newMob instanceof EntityMonster && ((EntityMonster) newMob).getEquipment(4) != null)) {
+							newMob.setEquipment(4, new ItemStack(Item.LEATHER_HELMET));
+						}
 					}
 				}
 				event.setCancelled(true);

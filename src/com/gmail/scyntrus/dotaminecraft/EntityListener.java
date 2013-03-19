@@ -186,17 +186,21 @@ public class EntityListener implements Listener {
 			return;
 		}
 		if (event.getEntityType() != EntityType.PLAYER) {
-			((CraftEntity) event.getEntity()).getHandle().setEquipment(0, null);
-			((CraftEntity) event.getEntity()).getHandle().setEquipment(1, null);
-			((CraftEntity) event.getEntity()).getHandle().setEquipment(2, null);
-			((CraftEntity) event.getEntity()).getHandle().setEquipment(3, null);
-			((CraftEntity) event.getEntity()).getHandle().setEquipment(4, null);
+			if (plugin.goodVersion){
+				((CraftEntity) event.getEntity()).getHandle().setEquipment(0, null);
+				((CraftEntity) event.getEntity()).getHandle().setEquipment(1, null);
+				((CraftEntity) event.getEntity()).getHandle().setEquipment(2, null);
+				((CraftEntity) event.getEntity()).getHandle().setEquipment(3, null);
+				((CraftEntity) event.getEntity()).getHandle().setEquipment(4, null);
+			}
 			if (event.getEntity().getKiller() instanceof Player){
 				Player player = event.getEntity().getKiller();
 				for (ItemStack istack : event.getDrops()){
 					player.getInventory().addItem(istack);
 				}
-				plugin.playercs.put(player.getName(), plugin.playercs.get(player.getName())+1);
+				if (plugin.playercs.containsKey(player.getName())){
+					plugin.playercs.put(player.getName(), plugin.playercs.get(player.getName())+1);
+				}
 			}
 			event.getDrops().clear();
 		} else {

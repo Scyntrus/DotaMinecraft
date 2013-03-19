@@ -1,6 +1,7 @@
 package com.gmail.scyntrus.dotaminecraft;
 
 import java.awt.Rectangle;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.PluginManager;
 
+import com.gmail.scyntrus.dotaminecraft.metrics.MetricsLite;
 import com.onarandombox.MultiverseCore.MultiverseCore;
 
 public class DotaMinecraft extends JavaPlugin {
@@ -49,6 +51,8 @@ public class DotaMinecraft extends JavaPlugin {
 	public boolean removeMobArmor = false;
 	public boolean giveMobsHelmet = false;
 	
+	public boolean goodVersion = false;
+	
 	//Red is 1
 	//Blue is 2
 	
@@ -77,6 +81,22 @@ public class DotaMinecraft extends JavaPlugin {
     	} else {
     		System.out.println("Dota Minecraft must have Enabled set to true in the config.yml file!");
     	}
+    	
+    	try {
+    	    Class.forName("org.bukkit.craftbukkit.v1_5_R1.entity.CraftEntity");
+    	    goodVersion = true;
+    	} catch(Exception e) {
+    	    goodVersion = false;
+    	    System.out.println("You are running an unsupported version of CraftBukkit. Some features will be disabled.");
+    	}
+
+		try { // using mcstats.org metrics
+			MetricsLite metrics = new MetricsLite(this);
+			metrics.enable();
+			metrics.start();
+		} catch (IOException e) {
+			System.out.println("[Metrics] " + e.getMessage());
+		}
     }
     
     public void onDisable() {
