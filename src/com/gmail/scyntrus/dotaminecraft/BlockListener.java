@@ -5,6 +5,7 @@ import net.minecraft.server.v1_5_R2.Item;
 import net.minecraft.server.v1_5_R2.ItemStack;
 
 import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 import org.bukkit.craftbukkit.v1_5_R2.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -50,8 +51,18 @@ public class BlockListener implements Listener {
 			if (event.getItem().getType()==Material.MONSTER_EGG) {
 				Dispenser disp = (Dispenser) event.getBlock().getState().getData();
 				SpawnEgg e = (SpawnEgg) event.getItem().getData();
+				BlockFace face = disp.getFacing();
+				if (face == BlockFace.EAST) {
+					face = BlockFace.NORTH;
+				} else if (face == BlockFace.SOUTH) {
+					face = BlockFace.EAST;
+				} else if (face == BlockFace.WEST) {
+					face = BlockFace.SOUTH;
+				} else if (face == BlockFace.NORTH) {
+					face = BlockFace.WEST;
+				}
 				Entity newEntity = (Entity) event.getBlock().getWorld().spawnEntity(
-						event.getBlock().getRelative(disp.getFacing()).getLocation().add(.5,0.,.5), 
+						event.getBlock().getRelative(face).getLocation().add(.5,0.,.5), 
 						e.getSpawnedType());
 				if (plugin.goodVersion) {
 					net.minecraft.server.v1_5_R2.Entity newMob = ((CraftEntity) newEntity).getHandle();
