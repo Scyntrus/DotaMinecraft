@@ -80,12 +80,16 @@ public class DotaCommand implements CommandExecutor {
 					if (jointeam == 2){
 						plugin.BlueCount++;
 						plugin.playerlist.put(player.getName(), 2);
+						player.setCustomName(ChatColor.BLUE + player.getName());
+						player.setCustomNameVisible(true);
 						player.teleport(plugin.BluePoint);
 						player.setBedSpawnLocation(plugin.BlueBed);
 						plugin.broadcastMessage(player.getName() + " has joined team "+ChatColor.BLUE+"Blue.");
 					} else if (jointeam == 1){
 						plugin.RedCount++;
 						plugin.playerlist.put(player.getName(), 1);
+						player.setCustomName(ChatColor.RED + player.getName());
+						player.setCustomNameVisible(true);
 						player.teleport(plugin.RedPoint);
 						player.setBedSpawnLocation(plugin.RedBed);
 						plugin.broadcastMessage(player.getName() + " has joined team "+ChatColor.RED+"Red.");

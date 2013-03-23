@@ -42,6 +42,7 @@ public class DotaMinecraft extends JavaPlugin {
 	public boolean PlayersKeepItems = true;
 	public boolean Enabled = false;
 	public boolean PlayersKeepLevel = true;
+	public boolean colorNameTag = true;
 	public String WorldName = "Minecraft_dota";
 	public MultiverseCore MVCorePlugin = null;
 	public PluginManager pm = null;
@@ -69,6 +70,7 @@ public class DotaMinecraft extends JavaPlugin {
     	this.giveMobsHelmet = config.getBoolean("giveMobsHelmet");
     	this.RecallEnabled = config.getBoolean("RecallEnabled");
     	this.RecallDelay = config.getInt("RecallDelay");
+    	this.colorNameTag = config.getBoolean("colorNameTag");
     	
 		this.pm = this.getServer().getPluginManager();
     	
@@ -83,7 +85,7 @@ public class DotaMinecraft extends JavaPlugin {
     	}
     	
     	try {
-    	    Class.forName("org.bukkit.craftbukkit.v1_5_R1.entity.CraftEntity");
+    	    Class.forName("org.bukkit.craftbukkit.v1_5_R2.entity.CraftEntity"); // TODO: Don't forget to change this on version update
     	    goodVersion = true;
     	} catch(Exception e) {
     	    goodVersion = false;

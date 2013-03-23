@@ -3,7 +3,7 @@ package com.gmail.scyntrus.dotaminecraft;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_5_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_5_R2.entity.CraftEntity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -296,6 +296,8 @@ public class EntityListener implements Listener {
 			String name = event.getPlayer().getName();
 			if (plugin.playerlist.containsKey(name) && event.getFrom().getWorld().getName().equals(plugin.WorldName)) {
 				plugin.playerlist.remove(name);
+				event.getPlayer().setCustomName(event.getPlayer().getName());
+				event.getPlayer().setCustomNameVisible(false);
 				plugin.playerdeaths.remove(name);
 				plugin.playerkills.remove(name);
 				plugin.playerdeathitems.remove(name);

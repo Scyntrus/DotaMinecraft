@@ -1,11 +1,11 @@
 package com.gmail.scyntrus.dotaminecraft;
 
-import net.minecraft.server.v1_5_R1.EntityMonster;
-import net.minecraft.server.v1_5_R1.Item;
-import net.minecraft.server.v1_5_R1.ItemStack;
+import net.minecraft.server.v1_5_R2.EntityMonster;
+import net.minecraft.server.v1_5_R2.Item;
+import net.minecraft.server.v1_5_R2.ItemStack;
 
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_5_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_5_R2.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -54,7 +54,7 @@ public class BlockListener implements Listener {
 						event.getBlock().getRelative(disp.getFacing()).getLocation().add(.5,0.,.5), 
 						e.getSpawnedType());
 				if (plugin.goodVersion) {
-					net.minecraft.server.v1_5_R1.Entity newMob = ((CraftEntity) newEntity).getHandle();
+					net.minecraft.server.v1_5_R2.Entity newMob = ((CraftEntity) newEntity).getHandle();
 					if (plugin.removeMobArmor) {
 						newMob.setEquipment(1, null);
 						newMob.setEquipment(2, null);

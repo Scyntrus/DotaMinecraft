@@ -7,6 +7,9 @@ Enabled: false
 # The name of the Dota world. May not contain spaces or periods
 WorldName: Minecraft_dota
 
+# Color players' nametag according to their team
+colorNameTag: true
+
 # What happens on player death
 PlayersKeepItems: true
 PlayersKeepLevel: true
