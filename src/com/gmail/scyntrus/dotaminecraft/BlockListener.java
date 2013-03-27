@@ -1,19 +1,16 @@
 package com.gmail.scyntrus.dotaminecraft;
 
-import net.minecraft.server.v1_5_R2.EntityMonster;
-import net.minecraft.server.v1_5_R2.Item;
-import net.minecraft.server.v1_5_R2.ItemStack;
-
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
-import org.bukkit.craftbukkit.v1_5_R2.entity.CraftEntity;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Monster;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.Dispenser;
 import org.bukkit.material.SpawnEgg;
 
@@ -61,21 +58,18 @@ public class BlockListener implements Listener {
 				} else if (face == BlockFace.NORTH) {
 					face = BlockFace.WEST;
 				}
-				Entity newEntity = (Entity) event.getBlock().getWorld().spawnEntity(
+				LivingEntity newEntity = (LivingEntity) event.getBlock().getWorld().spawnEntity(
 						event.getBlock().getRelative(face).getLocation().add(.5,0.,.5), 
 						e.getSpawnedType());
-				if (plugin.goodVersion) {
-					net.minecraft.server.v1_5_R2.Entity newMob = ((CraftEntity) newEntity).getHandle();
-					if (plugin.removeMobArmor) {
-						newMob.setEquipment(1, null);
-						newMob.setEquipment(2, null);
-						newMob.setEquipment(3, null);
-						newMob.setEquipment(4, null);
-					}
-					if (plugin.giveMobsHelmet) {
-						if (!(newMob instanceof EntityMonster && ((EntityMonster) newMob).getEquipment(4) != null)) {
-							newMob.setEquipment(4, new ItemStack(Item.LEATHER_HELMET));
-						}
+				if (plugin.removeMobArmor) {
+					newEntity.getEquipment().setHelmet(null);
+					newEntity.getEquipment().setChestplate(null);
+					newEntity.getEquipment().setLeggings(null);
+					newEntity.getEquipment().setBoots(null);
+				}
+				if (plugin.giveMobsHelmet) {
+					if (newEntity instanceof Monster && (newEntity.getEquipment().getHelmet() == null || newEntity.getEquipment().getHelmet().getType() == Material.AIR)) {
+						newEntity.getEquipment().setHelmet(new ItemStack(Material.LEATHER_HELMET));
 					}
 				}
 				event.setCancelled(true);

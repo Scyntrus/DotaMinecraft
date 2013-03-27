@@ -83,14 +83,6 @@ public class DotaMinecraft extends JavaPlugin {
     	} else {
     		System.out.println("Dota Minecraft must have Enabled set to true in the config.yml file!");
     	}
-    	
-    	try {
-    	    Class.forName("org.bukkit.craftbukkit.v1_5_R2.entity.CraftEntity"); // TODO: Don't forget to change this on version update
-    	    goodVersion = true;
-    	} catch(Exception e) {
-    	    goodVersion = false;
-    	    System.out.println("[DotaMinecraft] You are running an unsupported version of CraftBukkit. Some features will be disabled.");
-    	}
 
 		try { // using mcstats.org metrics
 			MetricsLite metrics = new MetricsLite(this);
