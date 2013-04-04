@@ -1,7 +1,7 @@
 name: DotaMinecraft
 main: com.gmail.scyntrus.dotaminecraft.DotaMinecraft
 author: Scyntrus
-version: 2.2
+version: 2.21
 depend: [Multiverse-Core]
 commands:
     dota:
