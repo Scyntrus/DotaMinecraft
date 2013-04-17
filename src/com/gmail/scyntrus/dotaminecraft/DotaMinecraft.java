@@ -86,7 +86,6 @@ public class DotaMinecraft extends JavaPlugin {
 
 		try { // using mcstats.org metrics
 			MetricsLite metrics = new MetricsLite(this);
-			metrics.enable();
 			metrics.start();
 		} catch (IOException e) {
 			System.out.println("[Metrics] " + e.getMessage());
