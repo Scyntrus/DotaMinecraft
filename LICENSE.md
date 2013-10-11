@@ -1,5 +1,5 @@
 #TERMS AND CONDITIONS
-##USED TERMS
+####USED TERMS
 |  Term  |                                                                                                Description                                                                                                |
 |--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MOD    | modification, plugin, a piece of software that interfaces with the Minecraft client to extend, add, change or remove original capabilities.                                                               |
