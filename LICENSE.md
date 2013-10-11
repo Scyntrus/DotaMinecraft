@@ -6,7 +6,6 @@
 | MOJANG | Mojang AB                                                                                                                                                                                                 |
 | OWNER  | Original author(s) of the MOD. Under the copyright terms accepted when purchasing Minecraft (http://www.minecraft.net/copyright.jsp) the OWNER has full rights over their MOD despite use of MOJANG code. |
 | USER   | End user of the mod, person installing the mod.                                                                                                                                                           |
-|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 1. LIABILITY
 THIS MOD IS PROVIDED 'AS IS' WITH NO WARRANTIES, IMPLIED OR OTHERWISE. THE OWNER OF THIS MOD TAKES NO RESPONSIBILITY FOR ANY DAMAGES INCURRED FROM THE USE OF THIS MOD. THIS MOD ALTERS FUNDAMENTAL PARTS OF THE MINECRAFT GAME, PARTS OF MINECRAFT MAY NOT WORK WITH THIS MOD INSTALLED. ALL DAMAGES CAUSED FROM THE USE OR MISUSE OF THIS MOD FALL ON THE USER.
