@@ -1,10 +1,10 @@
 #TERMS AND CONDITIONS
-|  Term  |                                                                                                Description                                                                                                |
-|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| MOD    | modification, plugin, a piece of software that interfaces with the Minecraft client to extend, add, change or remove original capabilities.                                                               |
-| MOJANG | Mojang AB                                                                                                                                                                                                 |
-| OWNER  | Original author(s) of the MOD. Under the copyright terms accepted when purchasing Minecraft (http://www.minecraft.net/copyright.jsp) the OWNER has full rights over their MOD despite use of MOJANG code. |
-| USER   | End user of the mod, person installing the mod.                                                                                                                                                           |
+|  Term  |                                                                                                Description                                                                                                      |
+|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PLUGIN | Modification, plugin, a piece of software that interfaces with the CraftBukkit server to extend, add, change or remove original capabilities.                                                                   |
+| MOJANG | Mojang AB                                                                                                                                                                                                       |
+| OWNER  | Original author(s) of the PLUGIN. Under the copyright terms accepted when purchasing Minecraft (http://www.minecraft.net/copyright.jsp) the OWNER has full rights over their PLUGIN despite use of MOJANG code. |
+| USER   | End user of the mod, person installing the mod.                                                                                                                                                                 |
 
 
 1. LIABILITY
